@@ -1,0 +1,77 @@
+
+<div class="d-flex justify-content-center bg-body-tertiary">
+<nav class="navbar  pb-5 px-3">
+    <div class="container-fluid">
+      <div class="d-flex" role="search">
+        <input class="form-control me-2" #searchedProduct type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" (click)="searchProduct(searchedProduct.value)">Search</button>
+        <button class="btn btn-outline-danger ms-2" (click)="cancelsearch()">Cancel</button>
+      </div>
+    </div>
+</nav>
+</div>
+
+<div class="px-4 pb-4 mb-5">
+
+    @if(responseLoaded){
+
+        @if(productsList.length>0){
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+
+                @for(product of productsList; track product.id){
+
+                    <app-product-card [productToBeSent]="product" (cartNotificationEv)="notifyUser($event)" > </app-product-card>
+
+                }
+
+            </div>
+        }
+        @else{
+            <h1 class="text-center mt-5">OOPS!<br>There is no item that matches the given input</h1>
+        }
+
+    }
+    @else{
+
+        <div class="d-flex justify-content-center mt-5">
+            <div class="spinner-border text-primary m-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="fs-5 text-center">Loading...</div>
+
+    }
+
+</div>
+
+<nav class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" style="cursor: pointer" (click)="updatePage(-1)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" style="cursor: pointer" (click)="updatePage(0)">1</a></li>
+      <li class="page-item"><a class="page-link" style="cursor: pointer" (click)="updatePage(1)">2</a></li>
+      <li class="page-item"><a class="page-link" style="cursor: pointer" (click)="updatePage(2)">3</a></li>
+      <li class="page-item">
+        <a class="page-link" style="cursor: pointer" (click)="updatePage(3)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+</nav>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="Images/checkmark.png" class="rounded me-2" alt="...">
+      <strong class="me-auto">Products Store</strong>
+      <small>1 second ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Product added successfully!
+    </div>
+  </div>
+</div>

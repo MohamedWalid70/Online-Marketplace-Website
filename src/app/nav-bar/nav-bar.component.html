@@ -1,0 +1,38 @@
+<nav class="navbar nav-underline navbar-expand-lg bg-body-tertiary py-4 px-4 sticky-top">
+    <div class="container-fluid">
+        <div class="col-5 text-start">
+            <div class="d-flex" role="search">
+                <a class="nav-link fs-4" routerLink="/" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                 >Products App</a>
+            </div>
+        </div>
+        <div class="col-2" >
+            <ul class="navbar-nav me-auto mb-2">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/register"
+                     routerLinkActive="active"
+                     [routerLinkActiveOptions]="{exact:true}"
+                     >Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" 
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}"
+                    >Login</a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a routerLink="/cart">
+                        <div class="position-relative w-100 d-flex">
+                            
+                            <img src="../Images/add-to-cart.png" class="w-50" alt="">
+                            <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill text-bg-secondary">{{counterValue}}</span>
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

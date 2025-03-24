@@ -1,0 +1,76 @@
+
+<div class="px-4 pb-5 pt-3">
+    <h1 class="display-6">Cart</h1>
+
+    @if(contentLoaded){
+        @if(userAddedProducts.size>0){
+            <div class="table-responsive mt-4">
+                <table class="table table-bordered align-middle"> 
+
+                    <thead class="table-dark">
+                        <tr class="text-center">
+                            <td class="border border-0"></td>
+                            <td class="border border-0">Description</td>
+                            <td>Quantity</td>
+                            <td>Remove</td>
+                            <td>Price</td>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-group-divider">
+
+                    @for(entry of userAddedProducts.entries(); track $index){
+
+                        <tr class="text-center">
+                            <td class="border border-0">
+                                <div>
+                                    <img src={{products[entry[0]-1].images[0]}} class="cartListImage" alt={{products[entry[0]-1].title}}>
+                                </div>
+                            </td>
+                            <td class="border border-0">
+                                <h5>{{products[entry[0]-1].title}}</h5>
+                                <span class="d-block">{{products[entry[0]-1].warrantyInformation}}</span>
+                                <span class="d-block">{{products[entry[0]-1].shippingInformation}}</span>
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn bg-body-secondary fs-5" (click)="decreaseQuantity(entry[0])">-</button>
+                                    <div class="d-flex justify-content-center align-items-center px-3 bg-light fs-5">{{entry[1]}}</div>
+                                    <button type="button" class="btn bg-dark text-white fs-5" (click)="increaseQuantity(entry[0])">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn bg-body-secondary fs-5" (click)="delete(entry[0])">x</button>
+                            </td>
+                            <td>
+                                <!-- first argument is a dummy argument -->
+                                {{products[entry[0]-1] | discount : 23 : entry[1] | currency:"EGP"}}
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <div class="d-flex column-gap-5 border border-1 p-4 fs-5">
+                    <div>Total :</div>
+                    <div>
+                    {{total|currency:'EGP'}}
+                    </div>
+                </div>
+            </div>
+        }
+        @else{
+            <h1 class="display-6 text-center">You haven't done any kind of shopping yet!</h1>
+        }
+    }
+    @else{
+        <div class="d-flex justify-content-center mt-5">
+            <div class="spinner-border text-primary m-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="fs-5 text-center">Loading...</div>
+    }
+</div>

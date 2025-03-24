@@ -1,0 +1,36 @@
+<div class="col h-100">
+    <div class="card h-100">
+      <div class="d-flex justify-content-center position-relative bg-body-secondary">
+
+        @if(productToBeSent().stock>0 && !cartBtnDisabled){
+            <span class="badge text-bg-success position-absolute top-0 start-0 ms-2 mt-2 rounded-4 py-2 px-3">In stock</span>
+        }
+        @else{
+            <span class="badge text-bg-danger position-absolute top-0 start-0 ms-2 mt-2 rounded-4 py-2 px-3">Out of stock</span>
+        }
+
+        <img src={{productToBeSent().images[0]}} class="cardImage" alt="...">
+      </div>
+      <div class="card-body">
+        <div class="d-flex card-title column-gap-3">
+            <h5 class="">{{productToBeSent().title}}</h5>
+            <h5 class="flex-fill text-end">{{productToBeSent().price | currency:"EGP"}}</h5>
+        </div>
+            <p class="card-text text-info-emphasis" style="display:inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 31ch;">{{productToBeSent().description}}</p>
+
+            <div class="h-100">
+                <app-star-rating [rating]="productToBeSent().rating"></app-star-rating>
+                
+                <div class="d-flex mt-4">
+                    <button class="btn btn-outline-dark rounded-4 me-2" (click)="addToCart(productToBeSent().id)" [disabled]="cartBtnDisabled" >Add to Cart</button>
+                    <button class="btn btn-outline-dark rounded-4" [routerLink]="['/product-details', productToBeSent().id]">Explore</button>
+                </div>
+
+            </div>
+      </div>
+    </div>
+</div>
