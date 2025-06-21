@@ -1,5 +1,3 @@
-# Online Marketplace
-
 # 🛒 Online Marketplace Website
 
 A fully functional e-commerce web application that simulates a modern online marketplace where users can browse, search, and purchase products, while vendors can list and manage their offerings. The platform supports core e-commerce features such as user authentication, product management, shopping cart, and order tracking.
