@@ -1,5 +1,34 @@
 # Online Marketplace
 
+# 🛒 Online Marketplace Website
+
+A fully functional e-commerce web application that simulates a modern online marketplace where users can browse, search, and purchase products, while vendors can list and manage their offerings. The platform supports core e-commerce features such as user authentication, product management, shopping cart, and order tracking.
+
+---
+
+## 📌 Features
+
+- 👥 **User Registration & Authentication**: Buyers and vendors can register and securely log in.
+- 🛍️ **Product Browsing**: Browse items by category, price range, rating, and more.
+- 🔍 **Advanced Search & Filters**: Real-time search with sorting and filtering options.
+- 📦 **Vendor Dashboard**: Vendors can list products, manage inventory, and track orders.
+- 🛒 **Shopping Cart**: Add products to cart with live total calculation.
+- 💳 **Checkout Process**: Simulated checkout flow with order summary.
+- 📈 **Order History**: Users can view past orders and their statuses.
+- 📷 **Product Images**: Upload and manage images for product listings.
+- 💬 **Reviews & Ratings**: Users can leave feedback and rate products.
+- 🧾 **Admin Panel**: Manage users, vendors, and product listings.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend:
+- **HTML**, **CSS**, **JavaScript**
+- **Bootstrap** for responsive design
+- **Angular** for dynamic SPA experience
+
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server
